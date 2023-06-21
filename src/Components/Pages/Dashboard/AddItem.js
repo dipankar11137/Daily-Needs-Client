@@ -58,7 +58,7 @@ const AddItem = () => {
               <option className="text-lg text-blue-900 ">Serif</option>
               <option className="text-lg text-blue-900 ">Mason</option>
               <option className="text-lg text-blue-900 ">
-                AmbulanceServices
+                Event Management
               </option>
               <option className="text-lg text-blue-900 ">
                 VehiclesServices

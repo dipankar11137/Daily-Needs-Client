@@ -13,7 +13,7 @@ const Contact = ({ contact, handleDelete }) => {
           onClick={() => handleDelete(contact?._id)}
           className="btn btn-red-500 font-bold"
         >
-          Delivered
+          Delete
         </button>
       </td>
     </tr>

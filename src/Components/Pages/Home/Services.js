@@ -79,13 +79,13 @@ const Services = () => {
               <figure>
                 <img
                   className="w-full pic-style"
-                  src="https://www.freepnglogos.com/uploads/ambulance-png/ambulance-interests-the-school-counselor-kind-8.png"
+                  src="https://cdn-icons-png.flaticon.com/512/2037/2037551.png"
                   alt="Shoes"
                   style={{ height: '200px', width: '200px' }}
                 />
               </figure>
               <div className="card-body">
-                <h2 className="card-title font-bold">অ্যাম্বুলেন্স পরিষেবা </h2>
+                <h2 className="card-title font-bold">ইভেন্ট ম্যানেজমেন্ট </h2>
               </div>
             </div>
           </Link>
