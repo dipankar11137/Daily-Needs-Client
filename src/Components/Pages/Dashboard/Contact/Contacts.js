@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 import Contact from './Contact';
 
 const Contacts = () => {
@@ -11,19 +12,19 @@ const Contacts = () => {
   }, [contacts]);
 
   const handleDelete = id => {
-    // const proceed = window.confirm('Are You Sure ?');
-    // if (proceed) {
-    //   const url = `http://localhost:5000/contact/${id}`;
-    //   fetch(url, {
-    //     method: 'DELETE',
-    //   })
-    //     .then(res => res.json())
-    //     .then(data => {
-    //       const remaining = contacts.filter(product => product._id !== id);
-    //       setContacts(remaining);
-    //       toast.success('Successfully Delete');
-    //     });
-    // }
+    const proceed = window.confirm('Are You Sure ?');
+    if (proceed) {
+      const url = `http://localhost:5000/contact/${id}`;
+      fetch(url, {
+        method: 'DELETE',
+      })
+        .then(res => res.json())
+        .then(data => {
+          const remaining = contacts.filter(product => product._id !== id);
+          setContacts(remaining);
+          toast.success('Successfully Delete');
+        });
+    }
   };
   return (
     <div className=" mx-6 mt-5 pb-20">
