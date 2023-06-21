@@ -9,6 +9,7 @@ const Contact = () => {
     register,
     formState: { errors },
     handleSubmit,
+    reset,
   } = useForm();
   const onSubmit = data => {
     fetch(`http://localhost:5000/contact`, {
@@ -20,6 +21,7 @@ const Contact = () => {
     })
       .then(res => res.json())
       .then(data => {
+        reset();
         toast.success('Done');
       });
   };
