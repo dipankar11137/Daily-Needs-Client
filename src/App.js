@@ -22,6 +22,7 @@ import Blog from './Components/Pages/Blogs/Blog';
 import BookServices from './Components/Pages/BookServices/BookServices';
 import AddJobs from './Components/Pages/Dashboard/AddJobs';
 import ManageBookings from './Components/Pages/Dashboard/Booking/ManageBookings';
+import Contacts from './Components/Pages/Dashboard/Contact/Contacts';
 import AmbulanceServices from './Components/Pages/Home/OurServices/AmbulanceServices';
 import Cleaner from './Components/Pages/Home/OurServices/Cleaner';
 import ComputerTechnicians from './Components/Pages/Home/OurServices/ComputerTechnicians';
@@ -114,6 +115,7 @@ function App() {
           <Route path="manageItem" element={<ManageItem />} />
           <Route path="addJobs" element={<AddJobs />} />
           <Route path="manageBooking" element={<ManageBookings />} />
+          <Route path="contact" element={<Contacts />} />
         </Route>
         {/* Dashboard End */}
 

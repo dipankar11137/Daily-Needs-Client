@@ -49,6 +49,14 @@ const Dashboard = () => {
                   Booking
                 </Link>
               </li>
+              <li>
+                <Link
+                  to="/dashboard/contact"
+                  className="font-bold text-xl hover:text-orange-600"
+                >
+                  Contact
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
