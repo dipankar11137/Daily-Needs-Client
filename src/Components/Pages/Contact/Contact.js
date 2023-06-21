@@ -1,8 +1,28 @@
 import React from "react";
-import Footer from "../Share/Footer";
-import contact from "../../Images/Banner/contact.jpg";
+import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
+import contact from '../../Images/Banner/contact.jpg';
+import Footer from '../Share/Footer';
 
 const Contact = () => {
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm();
+  const onSubmit = data => {
+    fetch(`http://localhost:5000/contact`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+      .then(res => res.json())
+      .then(data => {
+        toast.success('Done');
+      });
+  };
   return (
     <div>
       <div className="py-16 lg:px-16 bg-slate-50 rounded-xl">
@@ -13,68 +33,126 @@ const Contact = () => {
           <div>
             <img src={contact} alt="" />
           </div>
-          <div className="lg:max-w-lg mt-5">
-            <div className="">
-              <div className="grid grid-cols-1 md:grid-cols-2">
-                <div>
-                  <label className="label">
-                    <span className="label-text">Name</span>
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Name"
-                    className="text-center input input-bordered w-full"
-                  />
-                </div>
-                <div>
-                  <label className="label">
-                    <span className="label-text">Company</span>
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Company"
-                    className="text-center input input-bordered w-full"
-                  />
-                </div>
+          <div>
+            <form className="ml-16" onSubmit={handleSubmit(onSubmit)}>
+              {/* Name */}
+              <div className="form-control w-[400px]  ">
+                <label className="label">
+                  <span className="label-text">Name</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="Your name"
+                  className="input input-bordered bg-white w-full   hover:shadow-xl shadow-inner"
+                  {...register('name', {
+                    required: {
+                      value: true,
+                      message: 'Name is Required',
+                    },
+                  })}
+                />
+                <label className="label">
+                  {errors.name?.type === 'required' && (
+                    <span className="label-text-alt text-red-500">
+                      {errors.name.message}
+                    </span>
+                  )}
+                </label>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2">
-                <div>
-                  <label className="label">
-                    <span className="label-text">Email</span>
-                  </label>
-                  <input
-                    type="email"
-                    placeholder="Email Address"
-                    className="text-center input input-bordered w-full"
-                  />
-                </div>
-                <div>
-                  <label className="label">
-                    <span className="label-text">Phone</span>
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Phone"
-                    className="text-center input input-bordered w-full"
-                  />
-                </div>
+
+              {/* Email */}
+              <div className="form-control w-full  ">
+                <label className="label">
+                  <span className="label-text">Email</span>
+                </label>
+                <input
+                  type="email"
+                  placeholder="Your Email"
+                  className="input input-bordered bg-white w-full   hover:shadow-xl shadow-inner"
+                  {...register('email', {
+                    required: {
+                      value: true,
+                      message: 'Email is Required',
+                    },
+                    pattern: {
+                      value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
+                      message: 'Provide a valid Email',
+                    },
+                  })}
+                />
+                <label className="label">
+                  {errors.email?.type === 'required' && (
+                    <span className="label-text-alt text-red-500">
+                      {errors.email.message}
+                    </span>
+                  )}
+                  {errors.email?.type === 'pattern' && (
+                    <span className="label-text-alt text-red-500">
+                      {errors.email.message}
+                    </span>
+                  )}
+                </label>
               </div>
-              <div className="form-control">
+              {/* Phone */}
+              <div className="form-control w-full  ">
+                <label className="label">
+                  <span className="label-text">Phone</span>
+                </label>
+                <input
+                  type="phone"
+                  placeholder="Phone Number"
+                  className="input input-bordered bg-white w-full   hover:shadow-xl shadow-inner"
+                  {...register('phone', {
+                    required: {
+                      value: true,
+                      message: 'Phone is Required',
+                    },
+                  })}
+                />
+                <label className="label">
+                  {errors.phone?.type === 'required' && (
+                    <span className="label-text-alt text-red-500">
+                      {errors.phone.message}
+                    </span>
+                  )}
+                  {errors.phone?.type === 'minLength' && (
+                    <span className="label-text-alt text-red-500">
+                      {errors.phone.message}
+                    </span>
+                  )}
+                </label>
+              </div>
+              {/* Description */}
+              <div className="form-control w-full  ">
                 <label className="label">
                   <span className="label-text">Description</span>
                 </label>
                 <textarea
                   type="text"
-                  placeholder="How can I help you ?"
-                  className="text-center textarea textarea-bordered"
+                  placeholder="Description"
+                  className="input input-bordered bg-white w-full   hover:shadow-xl shadow-inner pt-1 h-20"
+                  {...register('description', {
+                    required: {
+                      value: true,
+                      message: 'Description is Required',
+                    },
+                  })}
                 />
+                <label className="label">
+                  {errors.description?.type === 'required' && (
+                    <span className="label-text-alt text-red-500">
+                      {errors.description.message}
+                    </span>
+                  )}
+                </label>
               </div>
-              <div className="form-control mt-6">
-                <button className="btn btn-orange-600 text-white">
-                  Submit
-                </button>
-              </div>
-            </div>
+
+              <input
+                className="btn btn-orange-500 w-full   text-white"
+                type="submit"
+                value="Contact"
+              />
+            </form>
           </div>
         </div>
       </div>
