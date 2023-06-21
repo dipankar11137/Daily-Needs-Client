@@ -33,9 +33,6 @@ const AddItem = () => {
   };
   return (
     <div className=" pb-20">
-      {/* <h2 className="mt-5 ml-10 font-bold text-4xl text-center text-orange-500 uppercase">
-        Please Add A Technician
-      </h2> */}
       <div className="bg-indigo-200 p-5 rounded-2xl w-11/12 mt-5 ml-5 ">
         <form
           className=" flex justify-center gap-4"
