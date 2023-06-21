@@ -1,10 +1,22 @@
 import React from 'react';
 
-const Contact = () => {
+const Contact = ({ contact, handleDelete }) => {
   return (
-    <div>
-      <h1>Contact</h1>
-    </div>
+    <tr className="text-center">
+      <td>{contact?.name}</td>
+      <td>{contact?.email}</td>
+      <td>{contact?.phone}</td>
+      <td>{contact?.description}</td>
+
+      <td>
+        <button
+          onClick={() => handleDelete(contact?._id)}
+          className="btn btn-red-500 font-bold"
+        >
+          Delivered
+        </button>
+      </td>
+    </tr>
   );
 };
 
