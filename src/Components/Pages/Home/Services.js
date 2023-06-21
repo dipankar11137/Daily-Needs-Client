@@ -111,13 +111,13 @@ const Services = () => {
               <figure>
                 <img
                   className="w-full pic-style"
-                  src="https://png.pngtree.com/element_our/png/20180918/chef-cooking-fried-chicken-and-delicious-sign-png_103460.jpg"
+                  src="https://www.nicepng.com/png/detail/118-1189598_nurse-clipart-nurse-cartoon.png"
                   alt="Shoes"
                   style={{ height: '200px', width: '200px' }}
                 />
               </figure>
               <div className="card-body">
-                <h2 className="card-title font-bold">বাবুর্চি </h2>
+                <h2 className="card-title font-bold">নার্স </h2>
               </div>
             </div>
           </Link>
