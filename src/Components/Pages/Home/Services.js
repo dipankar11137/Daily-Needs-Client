@@ -127,13 +127,13 @@ const Services = () => {
               <figure>
                 <img
                   className="w-full pic-style"
-                  src="https://bdyellowpages.net/upload/9021_Raj_Mistri.png"
+                  src="https://cdn1.byjus.com/byjusweb/img/landing-pages/BLC/blc-banner-teacher.png"
                   alt="Shoes"
                   style={{ height: '200px', width: '200px' }}
                 />
               </figure>
               <div className="card-body">
-                <h2 className="card-title font-bold">রাজমিস্ত্রী </h2>
+                <h2 className="card-title font-bold">শিক্ষক </h2>
               </div>
             </div>
           </Link>
